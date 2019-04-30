@@ -23,10 +23,10 @@ function uri($cible="")//:string
 *	@return \PDO
 */
 
-function getDB(	$dbuser='root', 
+function getDB(	$dbuser='', 
 				$dbpassword='', 
-				$dbhost='localhost',
-				$dbname='sitebeer') //:\PDO
+				$dbhost='',
+				$dbname='') //:\PDO
 {
 	
 
@@ -126,7 +126,7 @@ function userOnly($verify=false){//:array|void|boolean
 		session_start();
 	}
 	// est pas defini et false
-	if(!$_SESSION["auth"]){
+	if(!isset($_SESSION["auth"])){
 		if($verify){
 			return false;
 		//exit();
